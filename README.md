@@ -5,16 +5,24 @@
 SELECT
   COUNT (DISTINCT (aircraft_id))
 FROM flight
-WHERE date BETWEEN '2015-08-01' AND CAST('2015-08-01' AS DATE) + INTERVAL '1' MONTH;
+WHERE date BETWEEN '2015-08-01' AND CAST('2015-08-01' AS date) + INTERVAL '1' MONTH;
  
  ```
+```sql
+
 SELECT 
-  CAST('2015-01-01' AS timestamp) + INTERVAL '5' DAY;
-  
+	CAST('2015-01-01' AS timestamp) + INTERVAL '5' DAY;
+
+```
+```sql
+
 SELECT
-	avg(delay)
+	AVG(delay)
 FROM flight
 WHERE EXTRACT(MONTH from date) = 08;
+
+```
+```sql
 
 SELECT
 	EXTRACT(YEAR from date),
@@ -22,6 +30,7 @@ SELECT
 FROM flight
 GROUP BY EXTRACT(YEAR from date);
 
+```
 SELECT
 	code,
   count(flight.id),
